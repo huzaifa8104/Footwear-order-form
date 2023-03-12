@@ -187,26 +187,43 @@ class Passion_footwear:
 
 #==============================================Functions============================
 
+    # def total(self):
+    #     self.s_a1, self.s_a2, self.s_a3, self.s_a4, self.s_a5, self.s_a6, self.s_a7, self.s_a8, self.s_a9, self.s_a10 =  self.size_a1.get(), self.size_a2.get(), self.size_a3.get(), self.size_a4.get(), self.size_a5.get(), self.size_a6.get(), self.size_a7.get(), self.size_a8.get(), self.size_a9.get(), self.size_a10.get()
+    #     self.total_size_a = float(self.s_a1 + self.s_a2 + self.s_a3 + self.s_a4 + self.s_a5 + self.s_a6 + self.s_a7 + self.s_a8 + self.s_a9 + self.s_a10)
+    #     self.size_a.set(str(self.total_size_a))
+
+    #     self.s_b1, self.s_b2, self.s_b3, self.s_b4, self.s_b5, self.s_b6, self.s_b7, self.s_b8, self.s_b9, self.s_b10 =  self.size_b1.get(), self.size_b2.get(), self.size_b3.get(), self.size_b4.get(), self.size_b5.get(), self.size_b6.get(), self.size_b7.get(), self.size_b8.get(), self.size_b9.get(), self.size_b10.get()
+    #     self.total_size_b = float(self.s_b1 + self.s_b2 + self.s_b3 + self.s_b4 + self.s_b5 + self.s_b6 + self.s_b7 + self.s_b8 + self.s_b9 + self.s_b10)
+    #     self.size_b.set(str(self.total_size_b))
+
+    #     self.s_c1, self.s_c2, self.s_c3, self.s_c4, self.s_c5, self.s_c6, self.s_c7, self.s_c8, self.s_c9, self.s_c10 =  self.size_c1.get(), self.size_c2.get(), self.size_c3.get(), self.size_c4.get(), self.size_c5.get(), self.size_c6.get(), self.size_c7.get(), self.size_c8.get(), self.size_c9.get(), self.size_c10.get()
+    #     self.total_size_c = float(self.s_c1 + self.s_c2 + self.s_c3 + self.s_c4 + self.s_c5 + self.s_c6 + self.s_c7 + self.s_c8 + self.s_c9 + self.s_c10)
+    #     self.size_c.set(str(self.total_size_c))
+
+    #     self.s_d1, self.s_d2, self.s_d3, self.s_d4, self.s_d5, self.s_d6, self.s_d7, self.s_d8, self.s_d9, self.s_d10 =  self.size_d1.get(), self.size_d2.get(), self.size_d3.get(), self.size_d4.get(), self.size_d5.get(), self.size_d6.get(), self.size_d7.get(), self.size_d8.get(), self.size_d9.get(), self.size_d10.get()
+    #     self.total_size_d = float(self.s_d1 + self.s_d2 + self.s_d3 + self.s_d4 + self.s_d5 + self.s_d6 + self.s_d7 + self.s_d8 + self.s_d9 + self.s_d10)
+    #     self.size_d.set(str(self.total_size_d))
+
+    #     self.s_e1, self.s_e2, self.s_e3, self.s_e4, self.s_e5, self.s_e6, self.s_e7, self.s_e8, self.s_e9, self.s_e10 =  self.size_e1.get(), self.size_e2.get(), self.size_e3.get(), self.size_e4.get(), self.size_e5.get(), self.size_e6.get(), self.size_e7.get(), self.size_e8.get(), self.size_e9.get(), self.size_e10.get()
+    #     self.total_size_e = float(self.s_e1 + self.s_e2 + self.s_e3 + self.s_e4 + self.s_e5 + self.s_e6 + self.s_e7 + self.s_e8 + self.s_e9 + self.s_e10)
+    #     self.size_e.set(str(self.total_size_e))
+
     def total(self):
-        self.s_a1, self.s_a2, self.s_a3, self.s_a4, self.s_a5, self.s_a6, self.s_a7, self.s_a8, self.s_a9, self.s_a10 =  self.size_a1.get(), self.size_a2.get(), self.size_a3.get(), self.size_a4.get(), self.size_a5.get(), self.size_a6.get(), self.size_a7.get(), self.size_a8.get(), self.size_a9.get(), self.size_a10.get()
-        self.total_size_a = float(self.s_a1 + self.s_a2 + self.s_a3 + self.s_a4 + self.s_a5 + self.s_a6 + self.s_a7 + self.s_a8 + self.s_a9 + self.s_a10)
-        self.size_a.set(str(self.total_size_a))
+        size_dict = {
+            'a': self.size_a,
+            'b': self.size_b,
+            'c': self.size_c,
+            'd': self.size_d,
+            'e': self.size_e
+        }
+        for key, size in size_dict.items():
+            total_size = 0
+            for i in range(1, 11):
+                size_i = getattr(self, f'size_{key}{i}').get()
+                total_size += float(size_i)
+            size.set(str(total_size))
 
-        self.s_b1, self.s_b2, self.s_b3, self.s_b4, self.s_b5, self.s_b6, self.s_b7, self.s_b8, self.s_b9, self.s_b10 =  self.size_b1.get(), self.size_b2.get(), self.size_b3.get(), self.size_b4.get(), self.size_b5.get(), self.size_b6.get(), self.size_b7.get(), self.size_b8.get(), self.size_b9.get(), self.size_b10.get()
-        self.total_size_b = float(self.s_b1 + self.s_b2 + self.s_b3 + self.s_b4 + self.s_b5 + self.s_b6 + self.s_b7 + self.s_b8 + self.s_b9 + self.s_b10)
-        self.size_b.set(str(self.total_size_b))
 
-        self.s_c1, self.s_c2, self.s_c3, self.s_c4, self.s_c5, self.s_c6, self.s_c7, self.s_c8, self.s_c9, self.s_c10 =  self.size_c1.get(), self.size_c2.get(), self.size_c3.get(), self.size_c4.get(), self.size_c5.get(), self.size_c6.get(), self.size_c7.get(), self.size_c8.get(), self.size_c9.get(), self.size_c10.get()
-        self.total_size_c = float(self.s_c1 + self.s_c2 + self.s_c3 + self.s_c4 + self.s_c5 + self.s_c6 + self.s_c7 + self.s_c8 + self.s_c9 + self.s_c10)
-        self.size_c.set(str(self.total_size_c))
-
-        self.s_d1, self.s_d2, self.s_d3, self.s_d4, self.s_d5, self.s_d6, self.s_d7, self.s_d8, self.s_d9, self.s_d10 =  self.size_d1.get(), self.size_d2.get(), self.size_d3.get(), self.size_d4.get(), self.size_d5.get(), self.size_d6.get(), self.size_d7.get(), self.size_d8.get(), self.size_d9.get(), self.size_d10.get()
-        self.total_size_d = float(self.s_d1 + self.s_d2 + self.s_d3 + self.s_d4 + self.s_d5 + self.s_d6 + self.s_d7 + self.s_d8 + self.s_d9 + self.s_d10)
-        self.size_d.set(str(self.total_size_d))
-
-        self.s_e1, self.s_e2, self.s_e3, self.s_e4, self.s_e5, self.s_e6, self.s_e7, self.s_e8, self.s_e9, self.s_e10 =  self.size_e1.get(), self.size_e2.get(), self.size_e3.get(), self.size_e4.get(), self.size_e5.get(), self.size_e6.get(), self.size_e7.get(), self.size_e8.get(), self.size_e9.get(), self.size_e10.get()
-        self.total_size_e = float(self.s_e1 + self.s_e2 + self.s_e3 + self.s_e4 + self.s_e5 + self.s_e6 + self.s_e7 + self.s_e8 + self.s_e9 + self.s_e10)
-        self.size_e.set(str(self.total_size_e))
 
 
     def welcome_bill(self):
@@ -230,6 +247,308 @@ class Passion_footwear:
         lbl.configure(image=img)
         lbl.image = img 
 
+    # def order_form(self):
+    #     if self.karigar_name.get()=="" or self.party_no.get()=="" or self.art_no.get()=="" or self.date.get()=="":
+    #         messagebox.showerror("Error","Oops, Credential data is missing")
+    #     elif self.colors_a.get()=="" and self.colors_b.get()=="" and self.colors_c.get()=="" and self.colors_d.get()=="" and self.colors_e.get()=="":
+    #         messagebox.showerror("Error","Enter the colour")
+    #     elif self.size_a.get()=="0.0" and self.size_b.get()=="0.0" and self.size_c.get()=="0.0" and self.size_d.get()=="0.0" and self.size_e.get()=="0.0":
+    #         messagebox.showerror("Error","Enter the size")
+    #     else:
+    #         self.welcome_bill()
+    #         #==========================Size-L1========================
+    #         if self.colors_a.get()!="":
+    #             self.txtarea.insert(END,f"{self.colors_a.get()}")
+    #         if self.size_a1.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_a1.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a2.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_a2.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a3.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_a3.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a4.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_a4.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a5.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_a5.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a6.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_a6.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a7.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_a7.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a8.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_a8.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a9.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_a9.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a10.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_a10.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a11.get()!=0:
+    #             self.txtarea.insert(END,f"    {self.size_a11.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a12.get()!=0:
+    #             self.txtarea.insert(END,f"  {self.size_a12.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a13.get()!=0:
+    #             self.txtarea.insert(END,f"  {self.size_a13.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_a.get()!=0:
+    #             self.txtarea.insert(END,f"   {self.size_a.get()}")
+
+
+    #         #==========================Size-L2========================
+    #         if self.colors_b.get()!="":
+    #             self.txtarea.insert(END,f"\n{self.colors_a.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b1.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_b1.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b2.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_b2.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b3.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_b3.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b4.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_b4.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b5.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_b5.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b6.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_b6.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b7.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_b7.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b8.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_b8.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b9.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_b9.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b10.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_b10.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b11.get()!=0:
+    #             self.txtarea.insert(END,f"    {self.size_b11.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b12.get()!=0:
+    #             self.txtarea.insert(END,f"  {self.size_b12.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_b13.get()!=0:
+    #             self.txtarea.insert(END,f"  {self.size_b13.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+
+    #         #==========================Size-L3========================
+    #         if self.colors_c.get()!="":
+    #             self.txtarea.insert(END,f"\n{self.colors_c.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c1.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_c1.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c2.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_c2.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c3.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_c3.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c4.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_c4.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c5.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_c5.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c6.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_c6.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c7.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_c7.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c8.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_c8.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c9.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_c9.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c10.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_c10.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c11.get()!=0:
+    #             self.txtarea.insert(END,f"    {self.size_c11.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c12.get()!=0:
+    #             self.txtarea.insert(END,f"  {self.size_c12.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_c13.get()!=0:
+    #             self.txtarea.insert(END,f"  {self.size_c13.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+
+    #         #==========================Size-L4========================
+    #         if self.colors_d.get()!="":
+    #             self.txtarea.insert(END,f"\n{self.colors_a.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d1.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_d1.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d2.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_d2.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d3.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_d3.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d4.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_d4.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d5.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_d5.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d6.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_d6.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d7.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_d7.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d8.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_d8.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d9.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_d9.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d10.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_d10.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d11.get()!=0:
+    #             self.txtarea.insert(END,f"    {self.size_d11.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d12.get()!=0:
+    #             self.txtarea.insert(END,f"  {self.size_d12.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_d13.get()!=0:
+    #             self.txtarea.insert(END,f"  {self.size_d13.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+
+    #         #==========================Size-L2========================
+    #         if self.colors_e.get()!="":
+    #             self.txtarea.insert(END,f"\n{self.colors_a.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e1.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_e1.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e2.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_e2.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e3.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_e3.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e4.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_e4.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e5.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_e5.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e6.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_e6.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e7.get()!=0:
+    #             self.txtarea.insert(END,f"     {self.size_e7.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e8.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_e8.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e9.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_e9.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e10.get()!=0:
+    #             self.txtarea.insert(END,f"      {self.size_e10.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e11.get()!=0:
+    #             self.txtarea.insert(END,f"    {self.size_e11.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e12.get()!=0:
+    #             self.txtarea.insert(END,f"  {self.size_e12.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+    #         if self.size_e13.get()!=0:
+    #             self.txtarea.insert(END,f"  {self.size_e13.get()}")
+    #         else:
+    #             self.txtarea.insert(END,f"     -")
+
+
+        #===============================Optimized order_form ==========================
     def order_form(self):
         if not all([self.karigar_name.get(), self.party_no.get(), self.art_no.get(), self.date.get()]):
             messagebox.showerror("Error","Oops, Credential data is missing")
@@ -293,25 +612,25 @@ class Passion_footwear:
             self.remark.set("")
 
             #=========================================colors and size==============
-            self.colors_a.set("")
-            self.colors_b.set("")
-            self.colors_c.set("")
-            self.colors_d.set("")
-            self.colors_e.set("")
+            # self.colors_a.set("")
+            # self.colors_b.set("")
+            # self.colors_c.set("")
+            # self.colors_d.set("")
+            # self.colors_e.set("")
             # self.size_a1.set(0)
             # self.size_a2.set(0)
             # self.size_a3.set(0)
-            # # self.size_a4.set(0)
-            # # self.size_a5.set(0)
-            # # self.size_a6.set(0)
-            # # self.size_a7.set(0)
-            # # self.size_a8.set(0)
-            # # self.size_a9.set(0)
-            # # self.size_a10.set(0)
-            # # self.size_b1.set(0)
-            # # self.size_b2.set(0)
-            # # self.size_b3.set(0)
-            # # self.size_b4.set(0)
+            # self.size_a4.set(0)
+            # self.size_a5.set(0)
+            # self.size_a6.set(0)
+            # self.size_a7.set(0)
+            # self.size_a8.set(0)
+            # self.size_a9.set(0)
+            # self.size_a10.set(0)
+            # self.size_b1.set(0)
+            # self.size_b2.set(0)
+            # self.size_b3.set(0)
+            # self.size_b4.set(0)
             # self.size_b5.set(0)
             # self.size_b6.set(0)
             # self.size_b7.set(0)
@@ -349,12 +668,26 @@ class Passion_footwear:
             # self.size_e9.set(0)
             # self.size_e10.set(0)
 
-            #==========================================Total===================
-            self.size_a.set("")
-            self.size_b.set("")
-            self.size_c.set("")
-            self.size_d.set("")
-            self.size_e.set("")
+            # #==========================================Total===================
+            # self.size_a.set("")
+            # self.size_b.set("")
+            # self.size_c.set("")
+            # self.size_d.set("")
+            # self.size_e.set("")
+
+            # creating lists of size variables and color variables for each row
+            size_vars = [getattr(self, f'size_{row}{i}') for row in 'abcde' for i in range(1, 11)]
+            color_vars = [getattr(self, f'colors_{row}') for row in 'abcde']
+
+            # set all size variables to 0
+            for var in size_vars:
+                var.set(0)
+
+            # set all color variables to an empty string
+            for var in color_vars:
+                var.set("")
+
+            # set art_no variable to an empty string
             self.art_no.set("")
 
             self.welcome_bill()
@@ -371,6 +704,7 @@ class Passion_footwear:
 
 
 root=Tk()
+# root.resizable(True,True)
 lbl = Label(root,bd=0,relief=GROOVE,font=("times new roman",15,"bold"),fg="gold",bg="#283747")
 lbl.place(x=140,y=360,width=520,height=220)
 obj  = Passion_footwear(root)
