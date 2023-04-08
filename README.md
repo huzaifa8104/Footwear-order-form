@@ -45,4 +45,4 @@ The Footwear Order Form is a user-friendly and convenient GUI application that a
 
 
 
-*I am currently working on adding image functionality to the project, which will include displaying the image and enabling users to save it. This feature is in progress and will be available soon.*
+*NOTE: I am currently working on adding image functionality to the project, which will include displaying the image and enabling users to save it. This feature is in progress and will be available soon.*
